@@ -1,0 +1,89 @@
+@use '../../../styles/variables.scss' as v;
+
+.container {
+  h2 {
+    font-weight: v.$font-weight-bold;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    margin-right: 1.6rem;
+
+    @include v.large-screen {
+      font-size: 2.4rem;
+      line-height: 2.5rem;
+      margin-right: 3.2rem;
+    }
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+
+    div {
+      height: 0.5px;
+      width: 100%;
+      border: 0.5px solid v.$g-color-soft-white;
+    }
+  }
+
+  h3 {
+    font-weight: v.$font-weight-regular;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    margin-top: 3.2rem;
+    color: v.$g-color-light-gray;
+
+    @include v.large-screen {
+      font-size: 2rem;
+      line-height: 2.1rem;
+      margin-top: 4.3rem;
+    }
+  }
+
+  ul {
+    margin-top: 1.7rem;
+    margin-left: 1.5rem;
+
+    @include v.large-screen {
+      margin-top: 2.7rem;
+      margin-left: 4rem;
+    }
+  }
+
+  li {
+    font-weight: v.$font-weight-regular;
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+    margin-top: 1.3rem;
+
+    @include v.large-screen {
+      font-size: 1.8rem;
+      line-height: 2.4rem;
+    }
+
+    &::marker {
+      color: v.$g-color-dark-red;
+    }
+  }
+
+  .example {
+    color: v.$g-color-light-gray;
+    font-weight: v.$font-weight-regular;
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+    margin-top: 1.3rem;
+
+    @include v.large-screen {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.container.light {
+  color: v.$l-color-dark-gray;
+
+}
+
+.container.dark {
+  color: v.$g-color-white;
+
+}

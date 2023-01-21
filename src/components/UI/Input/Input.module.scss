@@ -1,0 +1,86 @@
+@use '../../../styles/variables.scss' as v;
+
+.container {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6rem 2.5rem;
+  border-radius: 1.6rem;
+  width: 100%;
+
+  @include v.large-screen {
+    padding: 2.4rem;
+  }
+  input {
+    font-weight: v.$font-weight-bold;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin-right: 1rem;
+
+    @include v.large-screen {
+      font-size: 2rem;
+      line-height: 2.1rem;
+    }
+
+    &::placeholder {
+      opacity: 0.25;
+    }
+
+  }
+
+  button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    width: fit-content;
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      translate: 0 1px;
+    }
+  }
+
+  img {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+}
+
+.error {
+  border: 1px solid v.$g-color-red;
+}
+
+.errorMsg {
+  color: v.$g-color-red;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  margin-left: 0.5rem;
+
+  @include v.large-screen {
+  font-size: 2rem;
+  line-height: 2.4rem;
+  }
+}
+
+.form.light {
+  background-color: v.$l-color-soft-white;
+  input {
+    color: v.$l-color-dark-gray;
+  }
+}
+
+.form.dark{ 
+  background-color: v.$d-color-moderate-black;
+  input {
+    color: v.$g-color-white;
+  }
+}

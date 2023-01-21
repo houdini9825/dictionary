@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Inter:wght@400;700&family=Lora:wght@400;700&display=swap');
+
+
+/* Colors used in both themes */
+$g-color-purple-red: #A445ED;
+$g-color-light-gray: #757575;
+$g-color-white: #FFFFFF;
+$g-color-black: #000000;
+$g-color-dark-red: #8F19E8;
+$g-color-soft-white: #E9E9E9;
+$g-color-red: #FF5252;
+
+/* Light theme colors only */
+$l-color-dark-gray: #2D2D2D;
+$l-color-soft-white: #F4F4F4;
+
+/* Dark theme colors only */
+$d-color-black: #050505;
+$d-color-moderate-black: #1F1F1F;
+$d-color-dark-gray: #3A3A3A;
+
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+$font-family-mono: 'Inconsolata', monospace;
+$font-family-sans: 'Inter', sans-serif;
+$font-family-serif: 'Lora', serif;
+
+
+$large-screen: 43.75em;
+
+@mixin large-screen {
+  @media (min-width: $large-screen) {
+    @content
+  }
+}

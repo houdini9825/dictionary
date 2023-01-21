@@ -1,0 +1,56 @@
+@use '../../../styles/variables.scss' as v;
+
+.container {
+  padding: 1.8rem;
+  width: 120%;
+  border-radius: 1.6rem;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  translate: -2.5rem 7rem;
+
+  @include v.large-screen {
+    padding: 2.4rem;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin-right: 0;
+
+
+    &:active {
+      translate: 0 0.5px;
+    }
+  }
+}
+
+
+.container.light {
+  background-color: v.$g-color-white;
+  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+  button {
+    color: v.$l-color-dark-gray;
+
+    &:hover {
+      color: v.$g-color-purple-red;
+    }
+  }
+}
+
+.container.dark {
+  background-color: v.$d-color-moderate-black;
+
+  box-shadow: 0px 5px 30px #A445ED;
+
+  button {
+    color: v.$g-color-white;
+
+    &:hover {
+      color: v.$g-color-purple-red;
+    }
+  }
+
+}

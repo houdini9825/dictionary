@@ -1,0 +1,45 @@
+@use '../../../styles/variables.scss' as v;
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    font-weight: v.$font-weight-bold;
+    font-size: 3.2rem;
+    line-height: 4.1rem;
+
+    @include v.large-screen {
+      font-size: 6.4rem;
+      line-height: 6.7rem;
+    }
+  }
+
+  p {
+    font-weight: v.$font-weight-regular;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    color: v.$g-color-purple-red;
+    margin-top: 0.8rem;
+
+    @include v.large-screen {
+      font-size: 2.4rem;
+      line-height: 2.9rem;
+      margin-top: 1.1rem;
+    }
+  }
+}
+
+.container.light {
+h1 {
+    color: v.$l-color-dark-gray;
+  }
+}
+
+.container.dark {
+  h1 {
+    color: v.$g-color-white;
+  }
+
+}

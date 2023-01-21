@@ -1,0 +1,50 @@
+@use '../../styles/variables.scss' as v;
+
+.footer {
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  font-weight: v.$font-weight-regular;
+  text-decoration: underline;
+
+  @include v.large-screen {
+    display: flex;
+    line-height: 1.5rem;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    margin-top: 0.8rem;
+
+    @include v.large-screen {
+      margin-top: 0;
+      margin-left: 2.5rem;
+    }
+  }
+
+  img {
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-left: 0.5rem;
+  }
+}
+
+.light {
+  p {
+    color: v.$g-color-light-gray;
+  }
+
+  a {
+    color: v.$l-color-dark-gray;
+  }
+}
+
+.dark {
+  p {
+    color: v.$g-color-light-gray;
+  }
+
+  a {
+    color: v.$g-color-white;
+  }
+}

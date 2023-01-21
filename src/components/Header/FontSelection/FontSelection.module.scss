@@ -1,0 +1,60 @@
+@use '../../../styles/variables.scss' as v;
+
+.container {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid v.$g-color-soft-white;
+  position: relative;
+  margin-right: 1.6rem;
+
+  @include v.large-screen {
+    margin-right: 2.6rem;
+  }
+
+  &:hover{
+    cursor: pointer;
+  }
+  
+  p, button {
+    font-weight: v.$font-weight-bold;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    margin-right: 1.6rem;
+
+    @include v.large-screen {
+      font-size: 1.8rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  svg {
+    width: 1.2rem;
+    height: 0.6rem;
+    margin-right: 1.6rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    @include v.large-screen {
+      margin-right: 2.6rem;
+    }
+  }
+
+}
+
+.container.light {
+  p {
+    color: v.$l-color-dark-gray;
+  }
+
+}
+
+.container.dark {
+  p {
+    color: v.$g-color-white;
+  }
+}

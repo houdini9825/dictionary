@@ -1,0 +1,30 @@
+@use './styles/variables.scss' as v;
+
+.page {
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 2.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include v.large-screen {
+    padding: 5.8rem 4rem;
+  }
+}
+
+.container {
+  width: 32.7rem;
+
+  @include v.large-screen {
+    width: 69rem;
+  }
+}
+
+.page.light {
+  background-color: v.$g-color-white;
+}
+
+.page.dark {
+  background-color: v.$d-color-black;
+}

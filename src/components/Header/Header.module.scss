@@ -1,0 +1,23 @@
+@use '../../styles/variables.scss' as v;
+
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+
+  img {
+    width: 2.8rem;
+    height: 3.2rem;
+
+    @include v.large-screen {
+      width: 3.2rem;
+      height: 3.6rem;
+    }
+  }
+}

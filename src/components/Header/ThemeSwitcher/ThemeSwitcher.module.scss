@@ -1,0 +1,58 @@
+@use '../../../styles/variables.scss' as v;
+
+.container {
+  display: flex;
+
+  div {
+    display: flex;
+    width: 4rem;
+    height: 2rem;
+    border-radius: 1rem;
+    padding: 0.3rem;
+    margin-right: 1.2rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  button {
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    width: 1.4rem;
+    height: 1.4rem;
+    background-color: v.$g-color-white;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.container.light {
+
+  div {
+    background-color: v.$g-color-light-gray;
+  }
+
+}
+
+.container.dark {
+  div {
+    background-color: v.$g-color-purple-red;
+    justify-content: flex-end;
+  }
+
+  .svg {
+
+    path {
+      stroke: v.$g-color-purple-red;
+    }
+  }
+}

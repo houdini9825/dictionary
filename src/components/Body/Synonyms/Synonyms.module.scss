@@ -1,0 +1,30 @@
+@use '../../../styles/variables.scss' as v;
+
+.container {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  width: 400px;
+
+  @include v.large-screen {
+    font-size: 2rem;
+    line-height: 2.1rem;
+  }
+
+  .label {
+    font-weight: v.$font-weight-regular;
+    color: v.$g-color-light-gray;
+  }
+
+  .data {
+    font-weight: v.$font-weight-bold;
+    margin-left: 2.4rem;
+    color: v.$g-color-purple-red;
+
+    @include v.large-screen {
+      margin-left: 4rem;
+    }
+  }
+
+}
