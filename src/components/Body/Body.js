@@ -1,27 +1,46 @@
 import styles from './Body.module.scss';
 import Synonyms from './Synonyms/Synonyms';
 import WordHeader from './WordHeader/WordHeader';
-import Input from '../UI/Input/Input';
-import List from '../UI/List/List'
-import TestData from '../../testdata.json'
+import List from '../UI/List/List';
+import NoneFound from '../NoneFound/NoneFound';
+import Footer from '../Footer/Footer';
 
-const data = TestData[0]
+function Body({ className, data }) {
+	const renderedLists = data.meanings.map((d) => {
+		return (
+			<List
+				className={styles.list}
+				key={d.partOfSpeech}
+				partOfSpeech={d.partOfSpeech}
+				definitions={d.definitions}
+			/>
+		);
+	});
 
-const synonyms = data.synonyms
+	let content;
 
-const renderedLists = data.meanings.map((d, i) => {
-  return <List key={i} partOfSpeech={d.partOfSpeech} definitions={d.definitions} />
-})
-
-function Body() {
-	return (
-		<div className={styles.container}>
-			<Input />
-      <WordHeader word={data.word} phonetic={data.phonetic} audioLink={'test'} />
-      {synonyms && <Synonyms data={synonyms}/>}
-      {renderedLists}
-		</div>
-	);
+	if (!data.valid) {
+		content = <NoneFound />;
+	} else {
+		content = (
+			<div className={className}>
+				<WordHeader
+					className={styles.header}
+					word={data.word}
+					phonetic={data.phonetic}
+					audioLink={data.audio}
+				/>
+				{data.synonyms.length ? (
+					<Synonyms className={styles.syn} data={data.synonyms} />
+				) : null}
+				{renderedLists}
+				{data.link && (
+					<Footer className={styles.footer} link={data.link} />
+				)}
+			</div>
+		);
+	}
+	return content;
 }
 
-export default Body
+export default Body;

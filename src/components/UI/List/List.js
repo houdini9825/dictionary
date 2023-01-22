@@ -3,13 +3,17 @@ import classname from 'classname';
 import ThemeContext from '../../../contexts/theme-context';
 import { useContext } from 'react';
 
-function List({ partOfSpeech, definitions }) {
+function List({ partOfSpeech, definitions, className }) {
 	const { activeTheme } = useContext(ThemeContext);
 
-	const containerClasses = classname(styles.container, {
-		[styles.light]: activeTheme === 'light',
-		[styles.dark]: activeTheme === 'dark',
-	});
+	const containerClasses = classname(
+		styles.container,
+		{
+			[styles.light]: activeTheme === 'light',
+			[styles.dark]: activeTheme === 'dark',
+		},
+		className
+	);
 
 	const renderedItems = definitions.map((def, i) => {
 		const example = def.example ? (

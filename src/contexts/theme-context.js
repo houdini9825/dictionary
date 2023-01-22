@@ -1,37 +1,35 @@
-import { createContext, useState } from "react";
-
-// Theme values = light, dark
-
-// Font values = sans serif, serif, mono
+import { createContext, useEffect, useState } from 'react';
 
 const ThemeContext = createContext();
 
-function ThemeContextProvider({children}) {
-  const [activeTheme, setActiveTheme] = useState('light')
-  const [activeFont, setActiveFont] = useState('serif')
+function ThemeContextProvider({ children }) {
+	const [activeTheme, setActiveTheme] = useState('light');
 
+	const changeActiveTheme = () => {
+		setActiveTheme((prevState) => {
+			const newTheme = prevState === 'light' ? 'dark' : 'light';
+			localStorage.setItem('theme', newTheme);
+			return newTheme;
+		});
+	};
 
-  const changeActiveTheme = () => {
-    setActiveTheme((prevState) => {
-      return prevState === 'light' ? 'dark' : 'light'
-    })
-  }
+	useEffect(() => {
+		const chosenTheme = localStorage.getItem('theme');
+		if (chosenTheme) setActiveTheme(chosenTheme);
+		else setActiveTheme('light');
+	}, []);
 
-  const changeActiveFont = (newFont) => {
-    setActiveFont(newFont)
-  }
+	const context = {
+		activeTheme,
+		changeActiveTheme,
+	};
 
-  const context = {
-    activeTheme,
-    activeFont,
-    changeActiveTheme,
-    changeActiveFont
-  }
-
-
-
-  return <ThemeContext.Provider value={context}>{children}</ThemeContext.Provider>
+	return (
+		<ThemeContext.Provider value={context}>
+			{children}
+		</ThemeContext.Provider>
+	);
 }
 
-export {ThemeContextProvider}
-export default ThemeContext
+export { ThemeContextProvider };
+export default ThemeContext;

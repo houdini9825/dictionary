@@ -1,0 +1,52 @@
+@use '../../styles/variables.scss' as v;
+
+.container {
+  margin-top: 10rem;
+  text-align: center;
+
+  @include v.large-screen {
+    margin-top: 14rem;
+  }
+}
+
+.emoji {
+  font-size: 6.4rem;
+  line-height: 7.5rem;
+}
+
+.title {
+  font-weight: v.$font-weight-bold;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  margin-top: 3rem;
+
+  @include v.large-screen {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+}
+
+.message {
+  font-weight: v.$font-weight-regular;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  color: v.$g-color-light-gray;
+  margin-top: 2rem;
+
+  @include v.large-screen {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+}
+
+.container.light {
+  .title {
+    color: v.$l-color-dark-gray;
+  }
+}
+
+.container.dark {
+  .title {
+    color: v.$g-color-white;
+  }
+}

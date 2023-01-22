@@ -1,0 +1,33 @@
+@use '../../styles/variables.scss' as v;
+
+
+.header {
+  margin-top: 2.4rem;
+
+  @include v.large-screen {
+    margin-top: 5rem;
+  }
+}
+
+.list {
+  margin-top: 3.4rem;
+
+  @include v.large-screen {
+    margin-top: 4.2rem;
+  }
+}
+
+.footer {
+  margin-top: 3.2rem;
+  @include v.large-screen {
+    margin-top: 3.9rem;
+  }
+}
+
+.syn {
+  margin-top: 2.4rem;
+
+  @include v.large-screen {
+    margin-top: 4.1rem;
+  }
+}

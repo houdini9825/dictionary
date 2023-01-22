@@ -4,20 +4,25 @@ import PlayButton from '../PlayButton/PlayButton';
 import { useContext } from 'react';
 import ThemeContext from '../../../contexts/theme-context';
 
-function WordHeader({word, phonetic, audioLink}) {
-  const {activeTheme} = useContext(ThemeContext)
+function WordHeader({ word, phonetic, audioLink, className }) {
+	const { activeTheme } = useContext(ThemeContext);
 
-  const containerClasses = classname((styles.container), {
-    [styles.light]: activeTheme === 'light',
-    [styles.dark]: activeTheme === 'dark'
-  })
+	const containerClasses = classname(
+		styles.container,
+		{
+			[styles.light]: activeTheme === 'light',
+			[styles.dark]: activeTheme === 'dark',
+		},
+		className
+	);
+
 	return (
 		<div className={containerClasses}>
 			<div>
 				<h1>{word}</h1>
-        <p>{phonetic}</p>
+				{phonetic && <p>{phonetic}</p>}
 			</div>
-      <PlayButton audioLink={audioLink}/>
+			{audioLink && <PlayButton audioLink={audioLink} />}
 		</div>
 	);
 }

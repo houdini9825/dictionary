@@ -14,10 +14,19 @@
 }
 
 .container {
-  width: 32.7rem;
+  width: 35rem;
+  min-height: 100vh;
 
   @include v.large-screen {
     width: 69rem;
+  }
+}
+
+
+.input {
+  margin-top: 2.4rem;
+  @include v.large-screen {
+    margin-top: 5.1rem;
   }
 }
 
@@ -28,3 +37,4 @@
 .page.dark {
   background-color: v.$d-color-black;
 }
+

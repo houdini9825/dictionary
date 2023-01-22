@@ -11,14 +11,18 @@ function Input({ className, onSubmit }) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-    if (!inputValue) {
-      setError(true)
-    }
+		if (!inputValue) {
+			setError(true);
+		} else {
+			document.activeElement?.blur();
+			onSubmit(inputValue);
+			setInputValue('');
+		}
 	};
 
 	const handleChange = (e) => {
 		setInputValue(e.target.value);
-    setError(false)
+		setError(false);
 	};
 
 	const formClasses = classname(

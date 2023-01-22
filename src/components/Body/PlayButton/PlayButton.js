@@ -1,20 +1,34 @@
 import styles from './PlayButton.module.scss';
 import classname from 'classname';
-import { useContext, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import ThemeContext from '../../../contexts/theme-context';
 
-function PlayButton({audioLink, className}) {
+function PlayButton({ audioLink, className }) {
 	const { activeTheme } = useContext(ThemeContext);
-  const [audoPlaying, setAudioPlaying] = useState(false)
+	const [audioPlaying, setAudioPlaying] = useState(false);
 
-	const btnClasses = classname(styles.button, {
-		[styles.light]: activeTheme === 'light',
-		[styles.dark]: activeTheme === 'dark',
-	}, className);
+	const btnClasses = classname(
+		styles.button,
+		{
+			[styles.light]: activeTheme === 'light',
+			[styles.dark]: activeTheme === 'dark',
+		},
+		className
+	);
 
-  const handleClick = (e) => {
+	const audioObject = useMemo(() => {
+		return new Audio(audioLink);
+	}, [audioLink]);
 
-  }
+	const handleClick = (e) => {
+		if (audioPlaying) {
+			audioObject.pause();
+			setAudioPlaying(false);
+		} else {
+			audioObject.play();
+			setAudioPlaying(true);
+		}
+	};
 
 	return (
 		<button onClick={handleClick} className={btnClasses}>
@@ -25,7 +39,13 @@ function PlayButton({audioLink, className}) {
 				viewBox="0 0 75 75"
 			>
 				<g fill="#A445ED" fillRule="evenodd">
-					<circle className={styles.circle} cx="37.5" cy="37.5" r="37.5" opacity=".4" />
+					<circle
+						className={styles.circle}
+						cx="37.5"
+						cy="37.5"
+						r="37.5"
+						opacity=".4"
+					/>
 					<path className={styles.test} d="M29 27v21l21-10.5z" />
 				</g>
 			</svg>

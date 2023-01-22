@@ -1,28 +1,33 @@
 import styles from './App.module.scss';
-import classNames from 'classname';
 import Body from './components/Body/Body';
 import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import TestData from './testdata.json';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import ThemeContext from './contexts/theme-context';
+import Input from './components/UI/Input/Input';
 import classname from 'classname';
+import useGetData from './hooks/use-get-data';
 
 function App() {
-	const data = ['sans serif', 'serif', 'Mono'];
-  const {activeTheme} = useContext(ThemeContext)
+	const { activeTheme } = useContext(ThemeContext);
+	const [currentWord, getData] = useGetData();
 
-  const pageClasses = classname((styles.page), {
-    [styles.light]: activeTheme === 'light',
-    [styles.dark]: activeTheme === 'dark'
-  })
+	const pageClasses = classname(styles.page, {
+		[styles.light]: activeTheme === 'light',
+		[styles.dark]: activeTheme === 'dark',
+	});
+
+	const renderedBody = currentWord.empty ? null : <Body data={currentWord} />;
+
+	useEffect(() => {
+		getData('home');
+	}, []);
 
 	return (
 		<div className={pageClasses}>
 			<div className={styles.container}>
 				<Header />
-				<Body />
-				<Footer link={'https://google.com'} />
+				<Input onSubmit={getData} className={styles.input} />
+				{renderedBody}
 			</div>
 		</div>
 	);

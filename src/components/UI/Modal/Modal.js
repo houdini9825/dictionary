@@ -1,28 +1,34 @@
-import styles from './Modal.module.scss'
-import classname from 'classname'
-import { useContext } from 'react'
-import ThemeContext from '../../../contexts/theme-context'
+import styles from './Modal.module.scss';
+import classname from 'classname';
+import { useContext } from 'react';
+import ThemeContext from '../../../contexts/theme-context';
 
+function Modal({ className, onClick, data }) {
+	const { activeTheme } = useContext(ThemeContext);
 
-function Modal({className, onClick, data}) {
-  const {activeTheme} = useContext(ThemeContext)
+	const containerClasses = classname(
+		styles.container,
+		{
+			[styles.light]: activeTheme === 'light',
+			[styles.dark]: activeTheme === 'dark',
+		},
+		className
+	);
 
-  const containerClasses = classname((styles.container), {
-    [styles.light]: activeTheme === 'light',
-    [styles.dark]: activeTheme === 'dark'
-  }, className)
+	const renderedItems = data.map((d) => {
+		return (
+			<button
+				className={d.id}
+				onClick={onClick}
+				data-val={d.id}
+				key={d.id}
+			>
+				{d.name}
+			</button>
+		);
+	});
 
-  const renderedItems = data.map(d => {
-    const fontClass = classname({
-      'sans': d === 'sans serif',
-      'serif': d === 'serif',
-      'mono': d === 'mono'
-    })
-
-    return <button className={fontClass} onClick={onClick} key={d}>{d}</button>
-  })
-
-  return <div className={containerClasses}>{renderedItems}</div>
+	return <div className={containerClasses}>{renderedItems}</div>;
 }
 
-export default Modal
+export default Modal;

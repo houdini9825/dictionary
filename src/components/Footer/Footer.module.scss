@@ -6,10 +6,20 @@
   font-weight: v.$font-weight-regular;
   text-decoration: underline;
 
-  @include v.large-screen {
-    display: flex;
-    line-height: 1.5rem;
+  hr {
+    border: none;
+    background-color: v.$g-color-soft-white;
+    height: 1px;
   }
+
+  div {
+    margin-top: 2.4rem;
+    @include v.large-screen {
+      display: flex;
+      line-height: 1.5rem;
+      margin-top: 2.2rem;
+  }
+}
 
   a {
     display: flex;

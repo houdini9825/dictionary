@@ -2,16 +2,17 @@
 
 .container {
   padding: 1.8rem;
-  width: 120%;
+  width: 12rem;
   border-radius: 1.6rem;
   position: absolute;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  translate: -2.5rem 7rem;
+  translate: -4rem 7rem;
 
   @include v.large-screen {
     padding: 2.4rem;
+    width: 18rem;
   }
 
   button {

@@ -6,6 +6,7 @@
   border-right: 1px solid v.$g-color-soft-white;
   position: relative;
   margin-right: 1.6rem;
+  user-select: none;
 
   @include v.large-screen {
     margin-right: 2.6rem;
@@ -44,6 +45,10 @@
     }
   }
 
+}
+
+.modal {
+  position: absolute;
 }
 
 .container.light {
